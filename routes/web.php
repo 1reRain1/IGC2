@@ -16,3 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::resource('application-requests', 'ApplicationRequestController');
+Route::resource('applicants', 'ApplicantController');
+Route::resource('certificates-pages', 'CertificatesPageController');
+Route::resource('email', 'EmailController');
