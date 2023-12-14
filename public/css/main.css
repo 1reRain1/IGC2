@@ -51,8 +51,8 @@
     width: 100%;
   }
   
-  form {
-  }
+  /* form { */
+  /* } */
   label {
     color: var(--form-color);
   }
@@ -73,9 +73,9 @@
     cursor: pointer;
   }
   
-  section {
+  /* section { */
     /* height: 100vh; */
-  }
+  /* } */
   
   /* ------ Header --------- */
   header {
@@ -129,8 +129,8 @@
     width: 100%;
   }
   
-  header .container .buttons {
-  }
+  /* header .container .buttons {
+  } */
   
   header .container .buttons .btn {
     padding: 1em 2em;
@@ -195,8 +195,8 @@
     color: var(--color-white);
     font-weight: bold;
   }
-  .landingPage .btn {
-  }
+  /* .landingPage .btn {
+  } */
   .landingPage__images {
     grid-column: 2;
     grid-row: 1 / 5;
@@ -276,8 +276,8 @@
     margin-top: 2rem;
     color: var(--color-gray);
   }
-  .certificate form label {
-  }
+  /* .certificate form label {
+  } */
   .certificate form input {
     margin: 0.5rem 0 1rem;
     /* border: 1px solid var(--color-black); */
@@ -664,9 +664,9 @@
       width: 100%;
       padding: 1rem;
     }
-    body {
+    /* body { */
       /* background-color: #282828; */
-    }
+    /* } */
     header .container {
       position: relative;
     }
