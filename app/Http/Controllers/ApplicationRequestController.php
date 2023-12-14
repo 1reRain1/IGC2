@@ -11,7 +11,7 @@ class ApplicationRequestController extends Controller
      */
     public function index()
     {
-        //
+        return view('certificateForm');
     }
 
     /**

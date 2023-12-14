@@ -1,4 +1,4 @@
-# Used for prod build.
+# Used for DEV & Local.
 FROM php:8.1-fpm as php
 
 # Set environment variables
@@ -21,6 +21,9 @@ COPY ./docker/php/php.ini /usr/local/etc/php/php.ini
 COPY ./docker/php/php-fpm.conf /usr/local/etc/php-fpm.d/www.conf
 COPY ./docker/nginx/nginx.conf /etc/nginx/nginx.conf
 
+# Install Xdebug
+RUN pecl install xdebug && docker-php-ext-enable xdebug
+
 # Set working directory to /var/www.
 WORKDIR /var/www
 
@@ -28,11 +31,12 @@ WORKDIR /var/www
 COPY --chown=www-data:www-data . .
 
 # Create laravel caching folders.
-RUN mkdir -p /var/www/storage/framework
-RUN mkdir -p /var/www/storage/framework/cache
-RUN mkdir -p /var/www/storage/framework/testing
-RUN mkdir -p /var/www/storage/framework/sessions
-RUN mkdir -p /var/www/storage/framework/views
+RUN mkdir -p /var/www/storage/framework /var/www/storage/framework/cache \
+    /var/www/storage/framework/testing /var/www/storage/framework/sessions \
+    /var/www/storage/framework/views
+
+RUN mkdir -p /var/www/storage /var/www/storage/logs /var/www/storage/framework \
+    /var/www/storage/framework/sessions /var/www/bootstrap
 
 # Fix files ownership.
 RUN chown -R www-data /var/www/storage
@@ -51,4 +55,4 @@ RUN usermod --uid 1000 www-data
 RUN groupmod --gid 1001 www-data
 
 # Run the entrypoint file.
-ENTRYPOINT [ "docker/entrypoint.sh" ]
+ENTRYPOINT [ "docker/entrypoint.local.sh" ]

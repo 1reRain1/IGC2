@@ -1,6 +1,11 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ApplicationRequestController;
+use App\Http\Controllers\ApplicantController;
+use App\Http\Controllers\CertificatesPageController;
+use App\Http\Controllers\EmailController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +18,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-Route::resource('application-requests', 'ApplicationRequestController');
-Route::resource('applicants', 'ApplicantController');
-Route::resource('certificates-pages', 'CertificatesPageController');
-Route::resource('email', 'EmailController');
+
+Route::resource('application-requests', ApplicationRequestController::class);
+Route::resource('applicants', ApplicantController::class);
+Route::resource('certificates-pages', CertificatesPageController::class);
+Route::resource('email', EmailController::class);
+
+Route::get('/RequestCertificate', [ApplicationRequestController::class, 'index'])->name('ApplicationRequestView');
