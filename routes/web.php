@@ -23,5 +23,4 @@ Route::resource('application-requests', ApplicationRequestController::class);
 Route::resource('applicants', ApplicantController::class);
 Route::resource('certificates-pages', CertificatesPageController::class);
 Route::resource('email', EmailController::class);
-
 Route::get('/RequestCertificate', [ApplicationRequestController::class, 'index'])->name('ApplicationRequestView');
