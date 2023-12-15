@@ -11,16 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('accepted_requests', function (Blueprint $table) {
-            $table->unsignedBigInteger('ApplicationID');
+        Schema::create('application_requests', function (Blueprint $table) {
+            $table->bigIncrements('ApplicationID');
             $table->unsignedBigInteger('UserID');
             $table->timestamps();
-
-            $table->primary('ApplicationID');
-
-            $table->foreign('ApplicationID')->references('ApplicationID')->on('application_requests')
-                ->onDelete('cascade');
-
+            $table->boolean('acceptedRequest');
             $table->foreign('UserID')->references('UserID')->on('applicants')
                 ->onDelete('cascade');
         });
@@ -31,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('accepted_requests');
+        Schema::dropIfExists('appllication_requests');
     }
 };

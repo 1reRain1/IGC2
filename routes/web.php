@@ -20,9 +20,7 @@ use App\Http\Controllers\HomeController;
 */
 
 
-Route::resource('application-requests', ApplicationRequestController::class);
 Route::resource('applicants', ApplicantController::class);
-Route::resource('certificates-pages', CertificatesPageController::class);
-Route::resource('email', EmailController::class);
 Route::get('/RequestCertificate', [ApplicationRequestController::class, 'index'])->name('ApplicationRequestView');
-Route::get('/home', [HomeController::class, 'index'])->name('HomeView');
+Route::get('/Home', [HomeController::class, 'index'])->name('HomeView');
+Route::post('/RequestCertificate', [ApplicationRequestController::class, 'store'])->name('RequestStore');

@@ -38,24 +38,25 @@
                 Ready to showcase your skills and unlock new opportunities? Fill out
                 the form below to start your certificate journey.
             </p>
-            <form action="">
+            <form method="POST" action="{{ route('RequestStore') }}" enctype="multipart/form-data">
+                @csrf                
                 <h3>informations personnelles</h3>
-                <label for="name">nom et prénom</label>
-                <input type="text" name="name" id="name" placeholder="Mohamed" />
-                <label for="">lieu de naissance</label>
-                <input type="text" name="name" id="name" placeholder="djelfa" />
-                <label for="">date de naissance</label>
-                <input type="date" name="name" id="name" placeholder="name" />
+                <label for="FullName">nom et prénom</label>
+                <input type="text" name="FullName" id="FullName" placeholder="Mohamed" />
+                <label for="PlaceOfBirth">lieu de naissance</label>
+                <input type="text" name="PlaceOfBirth" id="PlaceOfBirth" placeholder="djelfa" />
+                <label for="DateOfBirth">date de naissance</label>
+                <input type="date" name="DateOfBirth" id="DateOfBirth" placeholder="name" />
 
                 <h3>coordonnées</h3>
-                <label for="">email</label>
-                <input type="email" name="name" id="name" placeholder="chaibon@gmail.com" />
-                <label for="">numéro de téléphone</label>
-                <input type="number" name="name" id="name" placeholder="023423424" />
+                <label for="Email">email</label>
+                <input type="email" name="Email" id="Email" placeholder="chaibon@gmail.com" />
+                <label for="PhoneNumber">numéro de téléphone</label>
+                <input type="number" name="PhoneNumber" id="PhoneNumber" placeholder="0796020202" />
                 <h3>informations personnelles</h3>
                 <label for="SkillName">nom de la compétence</label>
-                <input type="text" name="SkillName" id="SkillName" placeholder="Design" />
-                <label for="">charger un CV</label>
+                <input type="text" name="SkillName" id="SkillName" placeholder="Barber" />
+                <label for="CV">charger un CV</label>
                 <div class="drop-section">
                     <div class="col">
                         <div class="cloud-icon">
@@ -64,7 +65,7 @@
                         <span>glisser-déposer ou
                             <span class="file-selector"> choisir un fichier </span>à
                             télécharger</span>
-                        <input type="file" class="file-selector-input" multiple />
+                        <input type="file" class="file-selector-input" multiple name="CV" />
                     </div>
                     <div class="col">
                         <div class="drop-here">Drop Here</div>

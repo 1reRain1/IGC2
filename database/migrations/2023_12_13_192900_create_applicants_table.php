@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('PhoneNumber');
             $table->string('Email')->unique();
             $table->string('SkillName')->nullable();
-            $table->string('CV')->nullable(); // The CV column to store the file path
+            $table->string('CV');
             $table->timestamps();
         });
     }

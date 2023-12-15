@@ -12,17 +12,12 @@ class ApplicationRequest extends Model
 
     protected $fillable = [
         'UserID',
+        'accepted'
     ];
 
     // ApplicationRequest belongs to an Applicant
     public function applicant()
     {
         return $this->belongsTo(Applicant::class, 'UserID');
-    }
-
-    // ApplicationRequest has one AcceptedRequest
-    public function acceptedRequest()
-    {
-        return $this->hasOne(AcceptedRequest::class, 'ApplicationID');
     }
 }

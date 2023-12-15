@@ -16,18 +16,12 @@ class Applicant extends Model
         'PhoneNumber',
         'Email',
         'SkillName',
-        'CV',
+        'CV'
     ];
 
     // Applicant has many ApplicationRequests
     public function applicationRequests()
     {
         return $this->hasMany(ApplicationRequest::class, 'UserID');
-    }
-
-    // Applicant has many AcceptedRequests through ApplicationRequests
-    public function acceptedRequests()
-    {
-        return $this->hasManyThrough(AcceptedRequest::class, ApplicationRequest::class, 'UserID', 'ApplicationID', 'UserID', 'ApplicationID');
     }
 }
