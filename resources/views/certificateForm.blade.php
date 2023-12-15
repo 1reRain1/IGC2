@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Form</title>
+    <title>RequestCertificate</title>
     <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
     <!-- google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -15,9 +15,9 @@
 <body>
     <header>
         <div class="container">
-            <a class="logo" href="./index.html">loogoo</a>
+            <a class="logo" href="{{ asset('home') }}">loogoo</a>
             <ul id="nav__items" class="nav__items">
-                <li><a href="">Home</a></li>
+                <li><a href="{{ asset('home') }}">Home</a></li>
                 <li><a href="">About</a></li>
                 <li><a href="">Contact</a></li>
             </ul>
@@ -53,8 +53,8 @@
                 <label for="">numéro de téléphone</label>
                 <input type="number" name="name" id="name" placeholder="023423424" />
                 <h3>informations personnelles</h3>
-                <label for="">nom de la compétence</label>
-                <input type="text" name="name" id="name" placeholder="Design" />
+                <label for="SkillName">nom de la compétence</label>
+                <input type="text" name="SkillName" id="SkillName" placeholder="Design" />
                 <label for="">charger un CV</label>
                 <div class="drop-section">
                     <div class="col">
@@ -86,7 +86,7 @@
                 <a href=""><img src="assets/file_pdf_document-4096-1165017167.png" alt="" /></a>
             </div>
             <div class="logo">
-                <a href="index.html">logo</a>
+                <a href="{{ asset('home') }}">logo</a>
             </div>
             <a class="contactUs" href="">Contactez-nous</a>
         </div>

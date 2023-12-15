@@ -5,6 +5,7 @@ use App\Http\Controllers\ApplicationRequestController;
 use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\CertificatesPageController;
 use App\Http\Controllers\EmailController;
+use App\Http\Controllers\HomeController;
 
 
 /*
@@ -24,3 +25,4 @@ Route::resource('applicants', ApplicantController::class);
 Route::resource('certificates-pages', CertificatesPageController::class);
 Route::resource('email', EmailController::class);
 Route::get('/RequestCertificate', [ApplicationRequestController::class, 'index'])->name('ApplicationRequestView');
+Route::get('/home', [HomeController::class, 'index'])->name('HomeView');
