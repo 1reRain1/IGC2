@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\applicant;
+use Illuminate\Support\Facades\Storage;
+
 
 class ApplicationRequestController extends Controller
 {
@@ -37,6 +39,14 @@ class ApplicationRequestController extends Controller
             'SkillName' => 'required:255',
             'CV' => 'required|file|mimes:pdf|max:2048' // Only PDF and max 2MB size
         ]);
+
+        if ($request->hasFile('CV')) {
+            // Use the 'cvs' disk to store the file securely
+            $cvPath = $request->file('CV')->store('', 'cvs'); // We set the directory to an empty string because the 'cvs' disk is already rooted at the CVs folder
+    
+            // Add the path to the CV in the validated data
+            $validatedData['CV'] = $cvPath; // This stores the file path relative to the disk's root
+        }
 
         $newRequest = applicant::create($validatedData);
 

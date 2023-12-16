@@ -56,6 +56,13 @@ return [
             'throw' => false,
         ],
 
+        'cvs' => [
+            'driver' => 'local',
+            'root' => storage_path('app/CVs'), // Make sure this path is exactly where you've created your CVs directory
+            'url' => env('APP_URL').'/CVs',
+            'visibility' => 'private', // Private visibility ensures files are not accessible directly via the web
+        ],
+
     ],
 
     /*

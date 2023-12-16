@@ -3,8 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApplicationRequestController;
 use App\Http\Controllers\ApplicantController;
-use App\Http\Controllers\CertificatesPageController;
-use App\Http\Controllers\EmailController;
 use App\Http\Controllers\HomeController;
 
 
