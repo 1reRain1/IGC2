@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\applicant;
+use App\Models\Applicant;
 use Illuminate\Support\Facades\Storage;
 
 
@@ -48,7 +48,7 @@ class ApplicationRequestController extends Controller
             $validatedData['CV'] = $cvPath; // This stores the file path relative to the disk's root
         }
 
-        $newRequest = applicant::create($validatedData);
+        $newRequest = Applicant::create($validatedData);
 
         return redirect()->route('ApplicationRequestView');
     }

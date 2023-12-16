@@ -22,3 +22,8 @@ Route::resource('applicants', ApplicantController::class);
 Route::get('/RequestCertificate', [ApplicationRequestController::class, 'index'])->name('ApplicationRequestView');
 Route::get('/Home', [HomeController::class, 'index'])->name('HomeView');
 Route::post('/RequestCertificate', [ApplicationRequestController::class, 'store'])->name('RequestStore');
+
+
+Route::group(['prefix' => 'admin'], function () {
+    Voyager::routes();
+});
