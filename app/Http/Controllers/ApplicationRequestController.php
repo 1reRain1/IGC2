@@ -51,14 +51,15 @@ class ApplicationRequestController extends Controller
             // Add the path to the CV in the validated data
             $validatedData['CV'] = $cvPath; // This stores the file path relative to the disk's root
         }
-        $token = Str::random(60);
+        $token1 = Str::random(60);
+        $token2 = Str::random(60);
 
-        $validatedData['confirmation_token'] = $token;
-        $validatedData['email_token'] = $token;
+        $validatedData['confirmation_token'] = $token1;
+        $validatedData['email_token'] = $token2;
 
         $newRequest = applicantstemporary::create($validatedData);
 
-        Mail::to($validatedData['Email'])->send(new igcMail($token));
+        Mail::to($validatedData['Email'])->send(new igcMail($token1));
 
          return redirect()->route('ApplicationRequestView')->with(
         'status', 'Thank you for your submission. Please check your email to confirm.'
