@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ApplicantsTemporary;
 use App\Models\Applicant;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\CertificateRequestMail;
+use Illuminate\Support\Str;
+use App\Mail\igcMail;
 
 
 class ApplicationRequestController extends Controller
@@ -43,15 +48,40 @@ class ApplicationRequestController extends Controller
         if ($request->hasFile('CV')) {
             // Use the 'cvs' disk to store the file securely
             $cvPath = $request->file('CV')->store('', 'cvs'); // We set the directory to an empty string because the 'cvs' disk is already rooted at the CVs folder
-    
             // Add the path to the CV in the validated data
             $validatedData['CV'] = $cvPath; // This stores the file path relative to the disk's root
         }
+        $token = Str::random(60);
 
-        $newRequest = Applicant::create($validatedData);
+        $validatedData['confirmation_token'] = $token;
+        $validatedData['email_token'] = $token;
 
-        return redirect()->route('ApplicationRequestView');
+        $newRequest = applicantstemporary::create($validatedData);
+
+        Mail::to($validatedData['Email'])->send(new igcMail($token));
+
+         return redirect()->route('ApplicationRequestView')->with(
+        'status', 'Thank you for your submission. Please check your email to confirm.'
+    );
+
     }
+
+    public function confirm($token)
+{
+    // Find the entry in the temporary table using the token
+    $ApplicantsTemporary = ApplicantsTemporary::where('confirmation_token', $token)->firstOrFail();
+    
+    // Move the data to the main `applicants` table
+    $applicantData = $ApplicantsTemporary->toArray();
+    unset($applicantData['id'], $applicantData['confirmation_token']); // Do not transfer the id or token
+    $applicant = Applicant::create($applicantData);
+    
+    // Delete the temporary record
+    $ApplicantsTemporary->delete();
+
+    // Redirect with a success message
+    return redirect()->route('ApplicationRequestView')->with('status', 'Your application has been confirmed!');
+}
 
     /**
      * Display the specified resource.

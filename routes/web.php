@@ -20,8 +20,10 @@ use App\Http\Controllers\HomeController;
 
 Route::resource('applicants', ApplicantController::class);
 Route::get('/RequestCertificate', [ApplicationRequestController::class, 'index'])->name('ApplicationRequestView');
-Route::get('/Home', [HomeController::class, 'index'])->name('HomeView');
+Route::get('/', [HomeController::class, 'index'])->name('HomeView');
 Route::post('/RequestCertificate', [ApplicationRequestController::class, 'store'])->name('RequestStore');
+
+Route::get('/RequestCertificate/confirm/{token}', [ApplicationRequestController::class, 'confirm'])->name('applicant.confirm');
 
 
 Route::group(['prefix' => 'admin'], function () {
