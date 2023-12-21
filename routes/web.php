@@ -4,6 +4,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApplicationRequestController;
 use App\Http\Controllers\ApplicantController;
 use App\Http\Controllers\HomeController;
+use TCG\Voyager\Facades\Voyager;
+
 
 
 /*
@@ -24,6 +26,8 @@ Route::get('/', [HomeController::class, 'index'])->name('HomeView');
 Route::post('/RequestCertificate', [ApplicationRequestController::class, 'store'])->name('RequestStore');
 
 Route::get('/RequestCertificate/confirm/{token}', [ApplicationRequestController::class, 'confirm'])->name('applicant.confirm');
+
+
 
 
 Route::group(['prefix' => 'admin'], function () {
