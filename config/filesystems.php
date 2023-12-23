@@ -39,7 +39,7 @@ return [
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
-            'url' => env('APP_URL').'/storage',
+            'url' => env('APP_URL') . '/storage',
             'visibility' => 'public',
             'throw' => false,
         ],
@@ -59,7 +59,7 @@ return [
         'cvs' => [
             'driver' => 'local',
             'root' => storage_path('app/CVs'), // Make sure this path is exactly where you've created your CVs directory
-            'url' => env('APP_URL').'/storage/app/CVs',
+            'url' => env('APP_URL') . '/admin/download/{filename}',
             'visibility' => 'private', // Private visibility ensures files are not accessible directly via the web
         ],
 

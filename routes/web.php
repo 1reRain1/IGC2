@@ -3,8 +3,12 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApplicationRequestController;
 use App\Http\Controllers\ApplicantController;
+use App\Http\Controllers\CVDownloadController;
 use App\Http\Controllers\HomeController;
 use TCG\Voyager\Facades\Voyager;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Http\Request;
+
 
 
 
@@ -34,6 +38,6 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-Route::get('/admin/cvs/download/{filename}', 'CVDownloadController@show')
+Route::get('/admin/download/{filename}', [CVDownloadController::class ,'download'])
      ->middleware('admin.user') 
      ->name('admin.cvs.download');

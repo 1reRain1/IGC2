@@ -20,6 +20,15 @@ class Applicant extends Model
         'CV',
         'email_token'
     ];
+    public function getCvDownloadUrlAttribute()
+    {
+        // Ensure you provide the exact column name where the filename is stored
+        if ($this->CV) {
+            return route('admin.cvs.download', ['filename' => $this->CV]);
+        }
+        
+        return ''; // or alternatively, you could provide a default or error URL
+    }
     
     
     
