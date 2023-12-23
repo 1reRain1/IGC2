@@ -23,12 +23,8 @@ class ApplicantsTemporary extends Model
     // The attributes that are mass assignable
     protected $fillable = [
         'FullName', 'DateOfBirth', 'PlaceOfBirth', 'PhoneNumber',
-        'Email', 'SkillName', 'CV', 'confirmation_token'
+        'Email', 'SkillName', 'CV', 'confirmation_token','email_token'
     ];
 
-    // The attributes that should be hidden for serialization
-    protected $hidden = [];
 
-    // The attributes that should be cast to native types
-    protected $casts = [];
 }

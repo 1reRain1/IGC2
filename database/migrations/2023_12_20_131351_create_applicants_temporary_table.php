@@ -19,8 +19,9 @@ return new class extends Migration
             $table->string('PhoneNumber');
             $table->string('Email')->unique();;
             $table->string('SkillName');
-            $table->string('CV');
+            $table->string('CV')->nullable();
             $table->string('confirmation_token', 60)->unique();
+            $table->string('email_token', 60)->unique();
             $table->timestamps();
         });
     }

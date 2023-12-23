@@ -33,3 +33,7 @@ Route::get('/RequestCertificate/confirm/{token}', [ApplicationRequestController:
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
+
+Route::get('/admin/cvs/download/{filename}', 'CVDownloadController@show')
+     ->middleware('admin.user') 
+     ->name('admin.cvs.download');

@@ -74,7 +74,7 @@ class ApplicationRequestController extends Controller
     
     // Move the data to the main `applicants` table
     $applicantData = $ApplicantsTemporary->toArray();
-    unset($applicantData['id'], $applicantData['confirmation_token']); // Do not transfer the id or token
+    unset($applicantData['UserID'], $applicantData['confirmation_token']); // Do not transfer the id or token
     $applicant = Applicant::create($applicantData);
     
     // Delete the temporary record

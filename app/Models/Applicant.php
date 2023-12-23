@@ -17,12 +17,10 @@ class Applicant extends Model
         'PhoneNumber',
         'Email',
         'SkillName',
-        'CV'
+        'CV',
+        'email_token'
     ];
-
-    // Applicant has many ApplicationRequests
-    public function applicationRequests()
-    {
-        return $this->hasMany(ApplicationRequest::class, 'UserID');
-    }
+    
+    
+    
 }
