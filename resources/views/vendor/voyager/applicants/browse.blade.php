@@ -213,19 +213,19 @@
                                         @elseif($row->type == 'file' && !empty($data->{$row->field}) )
                                         @include('voyager::multilingual.input-hidden-bread-browse')
                                         @if(json_decode($data->{$row->field}) !== null)
-                                        @foreach(json_decode($data->{$row->field}) as $file)
-                                        <a href="{{ route('admin.cvs.download', ['filename' => $file->download_link]) }}"
-                                            target="_blank">
-                                            {{ $file->original_name ?: '' }}
-                                        </a>
-                                        <br />
-                                        @endforeach
-                                        @else
-                                        <a href="{{ route('admin.cvs.download', ['filename' => $data->{$row->field}]) }}"
-                                            target="_blank">
-                                            {{ __('voyager::generic.download') }}
-                                        </a>
-                                        @endif
+    @foreach(json_decode($data->{$row->field}) as $file)
+        {{-- If $file->download_link already contains the subdirectory, you do not need to prefix it --}}
+        <a href="{{ route('admin.cvs.download', ['filepath' => $file->download_link]) }}" target="_blank">
+            {{ $file->original_name ?: '' }}
+        </a>
+        <br />
+    @endforeach
+@else
+    {{-- Same here - if $data->{$row->field} contains the full subdirectory path, don't prefix it --}}
+    <a href="{{ route('admin.cvs.download', ['filepath' => $data->{$row->field}]) }}" target="_blank">
+        {{ __('voyager::generic.download') }}
+    </a>
+@endif
                                         @elseif($row->type == 'rich_text_box')
                                         @include('voyager::multilingual.input-hidden-bread-browse')
                                         <div>{{ mb_strlen( strip_tags($data->{$row->field}, '<b><i><u>') ) > 200 ?

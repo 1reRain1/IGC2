@@ -57,32 +57,41 @@ class ApplicationRequestController extends Controller
         $validatedData['confirmation_token'] = $token1;
         $validatedData['email_token'] = $token2;
 
-        $newRequest = applicantstemporary::create($validatedData);
 
-        Mail::to($validatedData['Email'])->send(new igcMail($token1));
+        try {
+            $newRequest = applicantstemporary::create($validatedData);
 
-         return redirect()->route('ApplicationRequestView')->with(
-        'status', 'Thank you for your submission. Please check your email to confirm.'
-    );
+            Mail::to($validatedData['Email'])->send(new igcMail($token1));
 
+            return redirect()->route('ApplicationRequestView')->with(
+                'success', 'Thank you for your submission. Please check your email to confirm.'
+            );
+        } catch (\Exception $e) {
+            // Check if the exception is a duplicate entry error
+            if ($e->getCode() == 23000) {
+                return redirect()->back()->withInput()->withErrors(['Email' => 'This email is already used. Please choose another email.']);
+            } else {
+                return redirect()->route('ApplicationRequestView')->with('error', 'There was an error sending the confirmation email. Please try again or contact us for more feedback.');
+            }
+        }
     }
 
     public function confirm($token)
-{
-    // Find the entry in the temporary table using the token
-    $ApplicantsTemporary = ApplicantsTemporary::where('confirmation_token', $token)->firstOrFail();
-    
-    // Move the data to the main `applicants` table
-    $applicantData = $ApplicantsTemporary->toArray();
-    unset($applicantData['UserID'], $applicantData['confirmation_token']); // Do not transfer the id or token
-    $applicant = Applicant::create($applicantData);
-    
-    // Delete the temporary record
-    $ApplicantsTemporary->delete();
+    {
+        // Find the entry in the temporary table using the token
+        $ApplicantsTemporary = ApplicantsTemporary::where('confirmation_token', $token)->firstOrFail();
 
-    // Redirect with a success message
-    return redirect()->route('ApplicationRequestView')->with('status', 'Your application has been confirmed!');
-}
+        // Move the data to the main `applicants` table
+        $applicantData = $ApplicantsTemporary->toArray();
+        unset($applicantData['UserID'], $applicantData['confirmation_token']); // Do not transfer the id or token
+        $applicant = Applicant::create($applicantData);
+
+        // Delete the temporary record
+        $ApplicantsTemporary->delete();
+
+        // Redirect with a success message
+        return redirect()->route('ApplicationRequestView')->with('status', 'Your application has been confirmed!');
+    }
 
     /**
      * Display the specified resource.

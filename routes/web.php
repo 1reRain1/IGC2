@@ -24,11 +24,9 @@ use Illuminate\Http\Request;
 */
 
 
-Route::resource('applicants', ApplicantController::class);
 Route::get('/RequestCertificate', [ApplicationRequestController::class, 'index'])->name('ApplicationRequestView');
 Route::get('/', [HomeController::class, 'index'])->name('HomeView');
 Route::post('/RequestCertificate', [ApplicationRequestController::class, 'store'])->name('RequestStore');
-
 Route::get('/RequestCertificate/confirm/{token}', [ApplicationRequestController::class, 'confirm'])->name('applicant.confirm');
 
 
@@ -38,6 +36,7 @@ Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();
 });
 
-Route::get('/admin/download/{filename}', [CVDownloadController::class ,'download'])
-     ->middleware('admin.user') 
-     ->name('admin.cvs.download');
+Route::get('/admin/download/{filepath}', [CVDownloadController::class, 'download'])
+    ->where('filepath', '.*')
+    ->middleware('admin.user')
+    ->name('admin.cvs.download');

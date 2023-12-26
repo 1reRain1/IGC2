@@ -2,122 +2,180 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IGC Certificate</title>
-    <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
-    <!-- google font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>I.G.C.C</title>
+  <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
+  <!-- google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+    rel="stylesheet" />
 </head>
 
 <body>
-    <header>
-        <div class="container">
-            <a class="logo" href="{{ asset('home') }}">loogoo</a>
-            <ul id="nav__items" class="nav__items">
-                <li><a href="">Home</a></li>
-                <li><a href="">About</a></li>
-                <li><a href="">Contact</a></li>
-            </ul>
-            <div class="buttons">
-                <button class="sign-in btn">Log In</button>
-                <button class="sign-up btn">Sign Up</button>
-            </div>
-            <div id="open__items-btn" class="active">
-                <span>|</span>
-                <span>|</span>
-            </div>
+  <header>
+    <div class="container">
+      <a class="logo" href="{{'/'}}"><img src="assets/logo.png" alt="" /></a>
+      <ul id="nav__items" class="nav__items">
+        <button class="close__items-btn showInMoblie">
+          <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="18.3049" height="2.03388" rx="1.01694"
+              transform="matrix(0.7375 0.675348 -0.7375 0.675348 1.5 0)" fill="black" />
+            <rect width="18.3049" height="2.03388" rx="1.01694"
+              transform="matrix(0.7375 -0.675348 0.7375 0.675348 0 12.6265)" fill="black" />
+          </svg>
+        </button>
+        <a class="logo showInMoblie" href="./index.html"><img src="assets/logo.png" alt="" /></a>
+        <li><a href="{{'/'}}">Home</a></li>
+        <li><a href="">About</a></li>
+        <li><a href="">Contact</a></li>
+      </ul>
+      <div class="buttons">
+        <!-- <button class="sign-in btn">Log In</button>  -->
+        <button href="" class="sign-up btn">Request</button>
+      </div>
+      <div id="open__items-btn" class="active">
+        <span>|</span>
+        <span>|</span>
+      </div>
+    </div>
+  </header>
+  <section class="landingPage">
+    <div class="container">
+      <h1>International General <span>Certification</span> Center</h1>
+      <p>
+        Unlock new opportunities with our certificate , show off your skill
+        and expertise to the world.
+      </p>
+      <button class="btn purpleGradient">
+        <a href="/RequestCertificate">Request a Certificate</a>
+      </button>
+      <div class="landingPage__images">
+        <img src="assets/1.png" data-number="1" />
+        <img src="assets/2.png" data-number="2" />
+        <img src="assets/3.png" data-number="3" />
+      </div>
+    </div>
+  </section>
+  <section class="whyUs">
+    <div class="container">
+      <div class="image">
+        <img src="assets/section2.png" alt="" />
+      </div>
+      <div class="content" id="content">
+        <h1>ً Why choose Our Certififcate?</h1>
+        <p>
+          Elevate your career with IGC – swift certification, instant
+          recognition. Our seamless process propels your skills forward.
+        </p>
+        <ul>
+          <li>Open To All</li>
+          <li>Trustworthy</li>
+          <li>Real Appreciation</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <section class="howWorks">
+    <div class="container">
+      <h2 class="h2title">How it works?</h2>
+      <p class="ptitle">
+        Follow this simple steps to obtain your certificate :
+      </p>
+      <div class="steps">
+        <div class="step">
+          <span>1</span>
+          <h3>apply</h3>
+          <p>fill out the form with your details and skills</p>
         </div>
-    </header>
-    <section class="landingPage">
-        <div class="container">
-            <h1>IGC Certificate</h1>
-            <p>
-                Débloquez de nouvelles opportunités avec notre certificat, mettez en
-                valeur votre savoir-faire et votre expertise auprès du monde entier.
-            </p>
-            <button class="btn greenGradient">
-                <a href="{{ asset('RequestCertificate') }}">Créez votre certificat</a>
-            </button>
-            <div class="landingPage__images">
-                <img src="assets/1.png" data-number="1" />
-                <img src="assets/2.png" data-number="2" />
-                <img src="assets/3.png" data-number="3" />
-            </div>
+        <div class="step">
+          <span>2</span>
+          <h3>submit</h3>
+          <p>
+            provide your cv to help us better understand your qualifications .
+          </p>
         </div>
-    </section>
-    <section class="whyUs">
-        <div class="container">
-            <div class="image">
-                <img src="assets/3.png" alt="" />
-            </div>
-            <div class="content">
-                <h1>Pourquoi choisir notre certificat ?</h1>
-                <p>
-                    Faites progresser votre carrière avec IGC - certification rapide,
-                    reconnaissance immédiate. Notre processus sans accroc propulse vos
-                    compétences vers l’avant.
-                </p>
-                <ul>
-                    <li>Ouvert à tous</li>
-                    <li>Digne de confiance</li>
-                    <li>Réelle appréciation</li>
-                </ul>
-            </div>
+        <div class="step">
+          <span>3</span>
+          <h3>review</h3>
+          <p>our team will asess your application and skills.</p>
         </div>
-    </section>
-    <section class="howWorks">
-        <div class="container">
-            <h2 class="h2title">Comment ça fonctionne?</h2>
-            <p class="ptitle">
-                Suivez ces étapes simples pour obtenir votre certificat:
-            </p>
-            <div class="steps">
-                <div class="step">
-                    <span>1</span>
-                    <h3>appliquer</h3>
-                    <p>
-                        remplissez le formulaire avec vos coordonnées et vos compétences
-                    </p>
-                </div>
-                <div class="step">
-                    <span>2</span>
-                    <h3>soumettre</h3>
-                    <p>
-                        fournissez votre CV pour nous aider à mieux comprendre vos
-                        qualifications.
-                    </p>
-                </div>
-                <div class="step">
-                    <span>3</span>
-                    <h3>revoir</h3>
-                    <p>notre équipe évaluera votre candidature et vos compétences.</p>
-                </div>
-                <div class="step">
-                    <span>4</span>
-                    <h3>recevoir</h3>
-                    <p>si approuvé, vous recevrez votre certificat par e-mail.</p>
-                </div>
-            </div>
+        <div class="step">
+          <span>4</span>
+          <h3>receive</h3>
+          <p>if approved, you will recieve your certificate via email.</p>
         </div>
-    </section>
-    <footer>
-        <div class="container">
-            <div class="accounts">
-                <a href=""><img src="assets/file_pdf_document-4096-1165017167.png" alt="" /></a>
-                <a href=""><img src="assets/file_pdf_document-4096-1165017167.png" alt="" /></a>
-                <a href=""><img src="assets/file_pdf_document-4096-1165017167.png" alt="" /></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="certificate">
+    <div href="{{'RequestCertificate'}}" class="container">
+      <h2 class="h2title">Create your certificate</h2>
+      <p class="ptitle">
+        Ready to showcase your skills and unlock new opportunities? Fill out
+        the form below to start your certificate journey.
+      </p>
+      <form action="{{route('RequestStore')}}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <h3>Personal Inforamtion</h3>
+        <label for="name">Full Name</label>
+        <input type="text" name="FullName" id="FullName" placeholder="Your Full Name" required />
+        <label for="">Place of Birth</label>
+        <input type="text" name="PlaceOfBirth" id="PlaceOfBirth" placeholder="Algeria Algeries" required />
+        <label for="">Date of Birth</label>
+        <input type="date" name="DateOfBirth" id="DateOfBirth" placeholder="name" required />
+
+        <h3>Contact Inforamiton</h3>
+        <label for="">Email</label>
+        <input type="email" name="Email" id="name" placeholder="example@example.com" required />
+        <label for="">Phone Number</label>
+        <input type="text" name="PhoneNumber" id="PhoneNumber" placeholder="+213796091539" required />
+        <h3>Certificate Information</h3>
+        <label for="">Skill Name</label>
+        <input type="text" name="SkillName" id="SkillName" placeholder="UI & UX Design" required />
+        <label for="">Upload CV</label>
+        <div class="drop-section">
+          <div class="col">
+            <div class="cloud-icon">
+              <img src="assets/upload_1-512-1744225666.png" alt="" />
             </div>
-            <div class="logo">
-                <a href="{{ asset('home') }}">logo</a>
-            </div>
-            <a class="contactUs" href="">Contactez-nous</a>
+            <span class="hideInMobile">drag & drop or </span>
+            <span class="file-selector"> choose file </span>
+            <span class="hideInMobile"> to upload</span>
+            <input type="file" name="CV" class="file-selector-input" multiple required />
+          </div>
+          <div class="col">
+            <div class="drop-here">Drop Here</div>
+          </div>
         </div>
-    </footer>
-    <script src="{{ asset('js/main.js') }}"></script>
-    <script src="{{ asset('js/main.js') }}"></script>
+
+        <div class="list-section">
+          <div class="list-title">Uploaded Files</div>
+          <div class="list"></div>
+        </div>
+        <input type="submit" class="submit btn purpleGradient" value="place request" />
+      </form>
+    </div>
+
+  </section>
+  <footer>
+    <div class="container">
+      <div class="accounts">
+        <a href="https://www.facebook.com/profile.php?id=61554657521065&mibextid=PlNXYD"><img src="assets/facebook.png"
+            alt="" /></a>
+        <a href=""><img src="assets/telegram.png" alt="" /></a>
+      </div>
+      <div class="logo">
+        <a class="logo" href="{{'/'}}"><img src="assets/logo.png" alt="" /></a>
+      </div>
+      <a class="contactUs" href="">Contact Us</a>
+    </div>
+  </footer>
+  <script src="{{ asset('js/main.js') }}"></script>
+  <script src="{{ asset('js/form.js') }}"></script>
 </body>
 
 </html>

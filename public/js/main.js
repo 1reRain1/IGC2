@@ -1,87 +1,33 @@
+const openItemsBtn = document.getElementById("open__items-btn");
 
-const dropArea = document.querySelector(".drop-section");
-const listSection = document.querySelector(".list-section");
-const listContainer = document.querySelector(".list");
-const fileSelector = document.querySelector(".file-selector");
-const fileSelectorInput = document.querySelector(".file-selector-input");
+const navItems = document.getElementById("nav__items");
 
-// Upload Files With Brows Button
-fileSelector.onclick = () => fileSelectorInput.click();
-fileSelectorInput.onchange = () => {
-  [...fileSelectorInput.files].forEach((file) => {
-    if (typeValidation(file.type)) {
-      uploadFile(file);
-    }
-  });
-};
-
-// When file is over the drag area
-dropArea.ondragover = (e) => {
-  e.preventDefault();
-  [...e.dataTransfer.items].forEach((item) => {
-    if (typeValidation(item.type)) {
-      dropArea.classList.add("drag-over-effect");
-    }
-  });
-};
-
-// When file Drop on the drag area
-dropArea.ondrop = (e) => {
-  e.preventDefault();
-  dropArea.classList.remove("drag-over-effect");
-  if (e.dataTransfer.items) {
-    [...e.dataTransfer.items].forEach((item) => {
-      if (item.kind === "file") {
-        const file = item.getAsFile();
-        if (typeValidation(file.type)) {
-          uploadFile(file);
-        }
-      }
-    });
-  } else {
-    [...e.dataTransfer.files].forEach((file) => {
-      if (typeValidation(file.type)) {
-        uploadFile(file);
-      }
-    });
+document.onclick = function (e) {
+  if (e.target.id !== "nav__items" && e.target.id !== "open__items-btn") {
+    openItemsBtn.classList.remove("active");
+    navItems.classList.remove("active");
   }
 };
 
-// Check The file Type
-function typeValidation(type) {
-  let splitType = type.split("/")[0];
-  if (type == "application/pdf") {
-    return true;
-  }
+console.log(openItemsBtn);
+console.log(navItems);
+openItemsBtn.onclick = function () {
+  openItemsBtn.classList.toggle("active");
+  navItems.classList.toggle("active");
+};
+
+const imageArray = Array.from(document.querySelectorAll("img[data-number]"));
+
+// console.log(imageArray);
+
+function updateDataNumber() {
+  // Increment the data-number attribute and wrap around if necessary
+  imageArray.forEach((image) => {
+    let currentNumber = parseInt(image.dataset.number);
+    currentNumber = currentNumber === imageArray.length ? 1 : currentNumber + 1;
+    image.dataset.number = currentNumber;
+  });
 }
-function uploadFile(file) {
-  // console.log(file);
-  // Do Uploading
-  listSection.style.display = "block";
-  var li = document.createElement("li");
-  li.innerHTML = `
-      <div class="col">
-        <img
-          src="assets/file_pdf_document-4096-1165017167.png"
-          alt=""
-        />
-        <div class="name">${file.name}</div>
-      </div>
-      <div class="col">
-        <div class="file-size">${
-          (file.size / 1024).toFixed(2) > 1024
-            ? (file.size / (1024 * 1024)).toFixed(2) + " MB"
-            : (file.size / 1024).toFixed(2) + " KB"
-        }</div>
-        <span class="cross">X</span>
-      </div>
-  `;
-  listContainer.prepend(li);
-  let http = new XMLHttpRequest();
-  let data = new FormData();
-  http.onload = () => {
-    // Completed
-    li.classList.add("complete");
-    li.classList.add("in-prog");
-  };
-}
+
+// Set up an interval to change images every 1 second
+setInterval(updateDataNumber, 5000);

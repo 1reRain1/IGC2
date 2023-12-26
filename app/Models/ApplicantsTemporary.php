@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
+
 class ApplicantsTemporary extends Model
 {
     use HasFactory;
@@ -18,12 +19,12 @@ class ApplicantsTemporary extends Model
     // Indicates if the IDs are auto-incrementing
     public $incrementing = true;
 
- 
+
 
     // The attributes that are mass assignable
     protected $fillable = [
         'FullName', 'DateOfBirth', 'PlaceOfBirth', 'PhoneNumber',
-        'Email', 'SkillName', 'CV', 'confirmation_token','email_token'
+        'Email', 'SkillName', 'CV', 'confirmation_token', 'email_token'
     ];
 
 
