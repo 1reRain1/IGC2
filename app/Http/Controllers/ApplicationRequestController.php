@@ -90,7 +90,7 @@ class ApplicationRequestController extends Controller
         $ApplicantsTemporary->delete();
 
         // Redirect with a success message
-        return redirect()->route('ApplicationRequestView')->with('status', 'Your application has been confirmed!');
+        return redirect()->route('ApplicationRequestView')->with('confirmed', 'Your application has been confirmed! we will contact you soon');
     }
 
     /**

@@ -54,6 +54,12 @@
         {{ session('success') }}
       </div>
       @endif
+      
+      @if (session('confirmed'))
+      <div class="alert alert-success" role="alert">
+        {{ session('confirmed') }}
+      </div>
+      @endif
 
       @if (session('error'))
       <div class="alert alert-danger" role="alert">
