@@ -54,7 +54,6 @@ function typeValidation(type) {
   }
 }
 function uploadFile(file) {
-  // console.log(file);
   // Do Uploading
   listSection.style.display = "block";
   var li = document.createElement("li");
@@ -72,7 +71,7 @@ function uploadFile(file) {
             ? (file.size / (1024 * 1024)).toFixed(2) + " MB"
             : (file.size / 1024).toFixed(2) + " KB"
         }</div>
-        <span class="cross">X</span>
+        <span class="cross"><img src="./assets/true.png" alt=""></span>
       </div>
   `;
   listContainer.prepend(li);

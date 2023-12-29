@@ -9,8 +9,6 @@ document.onclick = function (e) {
   }
 };
 
-console.log(openItemsBtn);
-console.log(navItems);
 openItemsBtn.onclick = function () {
   openItemsBtn.classList.toggle("active");
   navItems.classList.toggle("active");
@@ -18,10 +16,7 @@ openItemsBtn.onclick = function () {
 
 const imageArray = Array.from(document.querySelectorAll("img[data-number]"));
 
-// console.log(imageArray);
-
 function updateDataNumber() {
-  // Increment the data-number attribute and wrap around if necessary
   imageArray.forEach((image) => {
     let currentNumber = parseInt(image.dataset.number);
     currentNumber = currentNumber === imageArray.length ? 1 : currentNumber + 1;
@@ -29,5 +24,4 @@ function updateDataNumber() {
   });
 }
 
-// Set up an interval to change images every 1 second
 setInterval(updateDataNumber, 5000);

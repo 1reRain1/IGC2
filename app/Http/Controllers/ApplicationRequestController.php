@@ -40,7 +40,7 @@ class ApplicationRequestController extends Controller
             'PlaceOfBirth' => 'required:255',
             'DateOfBirth' => 'required|date|before:today',
             'PhoneNumber' => 'required|numeric', // Assuming phone numbers contain only numbers
-            'Email' => 'required|email|unique:users,email|max:255', // Replace 'users' with your actual users table name
+            'Email' => 'required|email|unique:users,email|max:255',
             'SkillName' => 'required:255',
             'CV' => 'required|file|mimes:pdf|max:2048' // Only PDF and max 2MB size
         ]);

@@ -4,8 +4,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Form</title>
+  <title>I.G.C.C</title>
   <link rel="stylesheet" href="{{ asset('css/main.css') }}" />
+  <link rel="icon" type="image/x-icon" href="/assets/logo.png" />
+
   <!-- google font -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -17,25 +19,44 @@
 <body>
   <header>
     <div class="container">
-      <a class="logo" href="./index.html"><img src="assets/logo.png" alt="" /></a>
+      <a class="logo" href="/"><img src="assets/logo.png" alt="logo" /></a>
       <ul id="nav__items" class="nav__items">
         <button class="close__items-btn showInMoblie">
-          <svg width="15" height="14" viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="18.3049" height="2.03388" rx="1.01694"
-              transform="matrix(0.7375 0.675348 -0.7375 0.675348 1.5 0)" fill="black" />
-            <rect width="18.3049" height="2.03388" rx="1.01694"
-              transform="matrix(0.7375 -0.675348 0.7375 0.675348 0 12.6265)" fill="black" />
+          <svg
+            width="15"
+            height="14"
+            viewBox="0 0 15 14"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              width="18.3049"
+              height="2.03388"
+              rx="1.01694"
+              transform="matrix(0.7375 0.675348 -0.7375 0.675348 1.5 0)"
+              fill="black"
+            />
+            <rect
+              width="18.3049"
+              height="2.03388"
+              rx="1.01694"
+              transform="matrix(0.7375 -0.675348 0.7375 0.675348 0 12.6265)"
+              fill="black"
+            />
           </svg>
         </button>
-        <a class="logo showInMoblie" href="./index.html"><img src="assets/logo.png" alt="" /></a>
-        <li><a href="">Home</a></li>
-        <li><a href="">About</a></li>
-        <li><a href="">Contact</a></li>
-      </ul>
-      <!-- <div class="buttons">
-        <button class="sign-in btn">Log In</button>
-        <button class="sign-up btn">Sign Up</button>
-      </div> -->
+        <a class="logo showInMoblie" href="/"
+          ><img src="./assets/logo.png" alt=""
+        /></a>
+        <li><a href="/">Home</a></li>
+        <li><a href="/#WhyUs">Why Us</a></li>
+        <li><a href="/#howWorks">How it works</a></li>
+      {{-- <div class="buttons">
+        <button class="btn purpleGradient"><a href="RequestCertificate">Apply Now</a></button>
+      </div> --}}
+      <form action="RequestCertificate">
+        <button class="btn purpleGradient" type="submit">Apply Now</button>
+      </form>
       <div id="open__items-btn" class="active">
         <span>|</span>
         <span>|</span>
@@ -129,7 +150,7 @@
         <a href=""><img src="assets/telegram.png" alt="" /></a>
       </div>
       <div class="logo">
-        <a class="logo" href="./index.html"><img src="assets/logo.png" alt="" /></a>
+        <a class="logo" href="/"><img src="assets/logo.png" alt="" /></a>
       </div>
       <a class="contactUs" href="">contuct us </a>
     </div>

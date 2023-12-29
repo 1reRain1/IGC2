@@ -41,11 +41,10 @@
 <div class="container">
     <h1>Final Step: Submit Your Application</h1>
     <p>Dear Applicant,</p>
-    <p>You're almost there! Your application is just one step away from submission. To complete the process and join our esteemed ranks, simply click the button below.</p>
-    {{-- Ensure you generate the proper submission URL --}}
+    <p>You're almost there! Your application is just one step away from submission. To complete the process, click the button below.</p>
     <a href="{{ $confirmationUrl }}" class="button">Confirm Application</a>
     <p>If you have any questions or need further assistance, our support team is here to help.</p>
-    <p>Thank you for your diligence.</p>
+    <p>Thank youenter.</p>
     <p><strong>{{ config('app.name') }}</strong></p>
 </div>
 
